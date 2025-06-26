@@ -9,7 +9,7 @@ const token=process.env.TOKEN;
 const mytoken=process.env.MYTOKEN;//prasath_token
 
 app.listen(process.env.PORT,()=>{
-    console.log("webhook is listening");
+    console.log("Webhook is listening");
 });
 
 //to verify the callback url from dashboard side - cloud api side
@@ -54,12 +54,12 @@ app.post("/webhook",(req,res)=>{ //i want some
 
                axios({
                    method:"POST",
-                   url:"https://graph.facebook.com/v23.0/"+phon_no_id+"/messages?access_token="+token,
+                   url:"https://graph.facebook.com/v22.0/"+phon_no_id+"/messages?access_token="+token,
                    data:{
                        messaging_product:"whatsapp",
                        to:from,
                        text:{
-                           body:"System Mesajı:"+msg_body
+                           body:"Sistem Mesaj:"+msg_body
                        }
                    },
                    headers:{
@@ -78,5 +78,5 @@ app.post("/webhook",(req,res)=>{ //i want some
 });
 
 app.get("/",(req,res)=>{
-    res.status(200).send("Hello. This is webhook setup");
+    res.status(200).send("Hello. This is webhook setup.");
 });
